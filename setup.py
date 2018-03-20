@@ -192,7 +192,7 @@ class build(_build):
 
 
 setup(
-    name='pycygwin',
+    name='PyCygwin',
     version='0.1',
     packages=['cygwin'],
     ext_modules=[Extension('cygwin._cygwin',

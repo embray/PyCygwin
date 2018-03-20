@@ -4,7 +4,7 @@
 
 try:
     __version__ = \
-        __import__('pkg_resources').get_distribution('pycygwin').version
+        __import__('pkg_resources').get_distribution('PyCygwin').version
 except:
     __version__ = ''
 
