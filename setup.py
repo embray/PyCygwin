@@ -6,8 +6,7 @@ import time
 import sys
 
 from distutils import log
-from distutils.command.build import build as _build
-from distutils.command.build_ext import build_ext
+from distutils.command.build_ext import build_ext as _build_ext
 from distutils.errors import DistutilsModuleError, DistutilsOptionError
 
 from setuptools import setup, Command, Extension
@@ -181,14 +180,19 @@ class build_cython(Command):
             f.write(self._version_stamp)
 
 
-class build(_build):
+class build_ext(_build_ext):
     """
-    Same as the default build command, but adds build_cython as a
+    Same as the default build_ext command, but adds build_cython as a
     sub-command.
     """
 
-    sub_commands = ([('build_cython', lambda *args: True)] +
-                    _build.sub_commands)
+    sub_commands = [('build_cython', lambda *args: True)]
+
+    def run(self):
+        for cmd_name in self.get_sub_commands():
+            self.run_command(cmd_name)
+
+        _build_ext.run(self)
 
 
 setup(
@@ -199,6 +203,6 @@ setup(
                  [os.path.join('cygwin', '_cygwin.pyx')])],
     cmdclass={
         'build_cython': build_cython,
-        'build': build
+        'build_ext': build_ext
     }
 )
