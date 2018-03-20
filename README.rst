@@ -10,10 +10,22 @@ Installation
 
 ::
 
+    pip install Cython
     pip install PyCygwin
 
 Naturally, this is only installable in Cygwin-provided Python (i.e. where
-``sys.platform == 'cygwin'``).
+``sys.platform == 'cygwin'``).  Cython is currently an installation
+requirement, unfortunately, as PyPI will not allow uploading wheels for the
+Cygwin platform.
+
+Alternatively, you can direct pip to the wheels uploaded to GitHub, in
+which case Cython should not be needed::
+
+    pip install https://github.com/embray/PyCygwin/releases/download/0.1/PyCygwin-0.1-cp36-cp36m-cygwin_2_9_0_x86_64.whl
+
+for Python 3.6, or for Python 2.7::
+
+    pip install https://github.com/embray/PyCygwin/releases/download/0.1/PyCygwin-0.1-cp27-cp27m-cygwin_2_9_0_x86_64.whl
 
 
 Usage
