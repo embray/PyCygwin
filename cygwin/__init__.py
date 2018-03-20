@@ -121,8 +121,20 @@ def cygpath(path, mode='unix', absolute=True):
     return _cygwin.conv_path(what, path)
 
 
-# This one is easy--just use the low-level implementation directly
-winpid_to_pid = _cygwin.winpid_to_pid
+def winpid_to_pid(pid):
+    """
+    Converts the native Windows PID of a Cygwin process to its Cygwin PID.
+
+    Sometimes these are identical, but they don't have to be.  Raises an
+    `OSError` if the PID does not exist, or does not map to a Cygwin PID.
+
+    Parameters
+    ----------
+    pid : `int`
+        The PID of a Windows process to look up in Cygwin.
+    """
+
+    return _cygwin.winpid_to_pid(pid)
 
 
 def pid_to_winpid(pid):
