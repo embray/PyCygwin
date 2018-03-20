@@ -32,3 +32,5 @@ It only supports three useful functions:
 
 * ``cygwin.pid_to_winpid`` -- likewise, converts the PID of a Cygwin
   process to its native Windows PID.
+
+Full API documentation can be found at `http://pycygwin.readthedocs.io`.
