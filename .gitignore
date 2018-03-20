@@ -4,6 +4,9 @@ build/
 *.dll
 .cache/
 *.c
+
+# Dist files
+dist/
 *.egg-info
 
 # Editor crud
