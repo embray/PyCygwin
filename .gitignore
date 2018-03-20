@@ -4,6 +4,7 @@ build/
 *.dll
 .cache/
 *.c
+*.egg-info
 
 # Editor crud
 *.sw[po]
