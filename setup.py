@@ -195,6 +195,23 @@ class build_ext(_build_ext):
         _build_ext.run(self)
 
 
+EXT_MODULES = [
+    Extension('cygwin._cygwin', [os.path.join('cygwin', '_cygwin.pyx')])
+]
+
+
+CMDCLASS = {
+    'build_cython': build_cython,
+    'build_ext': build_ext
+}
+
+
+if os.environ.get('READTHEDOCS'):
+    # Don't use Cython or build extension modules on Readthedocs
+    EXT_MODULES = []
+    CMDCLASS = {}
+
+
 setup(
     name='PyCygwin',
     version='0.1',

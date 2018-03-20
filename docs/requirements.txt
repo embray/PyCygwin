@@ -1,0 +1,1 @@
+-e git://github.com/embray/PyCygwin.git#egg=PyCygwin

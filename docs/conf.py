@@ -175,3 +175,17 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
+
+
+# -- Additional configuration for building on RTD -------------------------
+import os
+if os.environ.get('READTHEDOCS'):
+    import sys
+    from unittest.mock import MagicMock
+
+    class MockModule(MagicMock):
+        @classmethod
+        def __getattr__(cls, name):
+            return MagicMock()
+
+    sys.modules['cygwin._cygwin'] = MockModule()
