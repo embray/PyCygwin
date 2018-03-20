@@ -21,7 +21,7 @@ cdef inline strerror_as_str(int err):
     """
 
     IF PY_MAJOR_VERSION == 2:
-        return sterror(err)
+        return strerror(err)
     ELSE:
         cdef const char* s
         cdef const char* enc
