@@ -212,9 +212,20 @@ if os.environ.get('READTHEDOCS'):
     CMDCLASS = {}
 
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
+
 setup(
     name='PyCygwin',
     version='0.1',
+    author='E. M. Bray',
+    author_email='erik.m.bray@gmail.com',
+    url='https://github.com/embray/PyCygwin',
+    description="Python bindings for Cygwin's C API",
+    long_description=readme(),
+    license='BSD',
     packages=['cygwin'],
     ext_modules=EXT_MODULES,
     cmdclass=CMDCLASS
