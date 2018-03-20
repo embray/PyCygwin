@@ -216,10 +216,6 @@ setup(
     name='PyCygwin',
     version='0.1',
     packages=['cygwin'],
-    ext_modules=[Extension('cygwin._cygwin',
-                 [os.path.join('cygwin', '_cygwin.pyx')])],
-    cmdclass={
-        'build_cython': build_cython,
-        'build_ext': build_ext
-    }
+    ext_modules=EXT_MODULES,
+    cmdclass=CMDCLASS
 )
