@@ -1,0 +1,9 @@
+# Build files
+build/
+*.py[co]
+*.dll
+.cache/
+*.c
+
+# Editor crud
+*.sw[po]
